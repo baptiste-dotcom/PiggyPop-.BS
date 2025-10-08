@@ -138,9 +138,9 @@ canvas {
 
 #restartButton {
   font-family: 'VT323', monospace;
-  font-size: 24px;
-  padding: 8px 20px;
-  margin-top: 16px;
+  font-size: 70px;
+  padding: 20px 40px;
+  margin-top: 32px auto;
   background-color: #ff69b4;
   color: #fff;
   border: 4px solid #fff;
@@ -217,10 +217,10 @@ canvas {
 }
 
   #restartButton {
-  margin: 12px auto;
+  margin: 32px auto;
   display: block;
-  font-size: 40px;
-  padding: 8px 16px;
+  font-size: 70px;
+  padding: 20px 40px;
   background-color: #ff69b4;
   color: #fff;
   border: 4px solid #fff;
@@ -236,3 +236,4 @@ canvas {
   border-left: 4px solid #ff00ff;
   }
 }
+
