@@ -172,8 +172,9 @@ canvas {
   #scoreBoard {
     width: 90vw;
     max-width: 90vw;
-    height: auto;
+    min-height: 180px;
     margin-bottom: 20px;
+    padding: 16px;
   }
 
   #canvasWrapper {
@@ -184,19 +185,18 @@ canvas {
   }
 
   canvas {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+    width: auto;
+    height: 70vh;
     margin: 0;
     position: relative;
     z-index: 10;
   }
 
   #scoreTopBar {
-    width: 90vw;
-    max-width: 90vw;
+    width: auto;
+    min-height: 60px;
     font-size: 18px;
-    padding: 8px 16px;
+    padding: 12px 20px;
   }
 
   #restartButton {
@@ -214,3 +214,4 @@ canvas {
     padding: 2px 6px;
   }
 }
+
