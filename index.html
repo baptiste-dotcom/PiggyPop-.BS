@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <meta charset="utf-8">
+            <title>Piggy Pop!</title>
+            <link rel="stylesheet" href="style.css">
+            <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        </head>
+            <body>
+                <img src="images/flying-pig.png" alt="cochon volant" id="flying-pig">
+                <img src="images/still-pig.png" alt="cochon assis" id="still-pig">
+                <h1>Piggy Pop!</h1>
+                <a href="jeux.html" class="cartoon-btn" id="play-btn">🐽 Lance-toi dans l’épopée céleste, cochon courageux</a>
+                <button class="cartoon-btn danger" id="quit-btn">🚪 Quitter</button>
+                
+                <div id="quit-dialog" class="dialog hidden">
+                    <p>Tu abandonnes ? Même les cochons volants te jugent ...</p>
+                    <button class="btn small" id="stay-btn">Je reste, les cochons ont besoin de moi</button>
+                    <button class="btn small" id="exit-btn">Je fuis, je m'incline devant la vivacité des cochons célestes</button>
+                </div>
+                <div id="crying-pig" class="hidden">
+                    <img src="images/crying-pig.png" alt="cochon qui pleure">
+                    <p>Snif.. tu m'abandonnes déja, moi qui commençait à t'apprécier..</p>
+                </div>
+                <script src="script.js"></script>
+                <footer id="footer">
+                    <p>&copy; 2025 Baptiste Corp — Même les cochons volants ont des droits 🐽🪽</p>
+                </footer>
+            </body>
+    </html>

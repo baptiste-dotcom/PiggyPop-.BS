@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  padding: 40px 0;
+  background: linear-gradient(to bottom, #222, #444);
+  font-family: 'VT323', monospace;
+  color: #fff;
+  justify-content: center;
+  display: flex;
+}
+
+canvas {
+  border: 4px solid #ff69b4;
+  box-shadow: 0 0 20px #000;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+}
+
+#canvasWrapper {
+    position: relative;
+    width: fit-content;
+}
+
+#canvasWrapper:after {
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+);
+  z-index: 2;
+}
+
+#scoreBoard {
+  width: 200px;
+  background: #222;
+  color: #00ffcc;
+  font-family: 'VT323', monospace;
+  padding: 10px;
+  border: 4px solid #00ffcc;
+  box-shadow: 0 0 12px #00ffcc;
+  text-shadow: 0 0 2px #00ffcc;
+  height: 600px;
+}
+
+#scoreBoard h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ff00ff;
+  text-shadow: 0 0 4px #ff00ff;
+}
+
+#scoreList {
+  list-style: none;
+  padding-left: 0;
+}
+
+#scoreList li {
+  font-size: 18px;
+  margin-bottom: 6px;
+  padding: 2px 4px;
+  background: #222;
+  border-left: 4px solid #ff00ff;
+  transition: background 0.3s;
+  animation: fadeInScore 0.4 ease-out;
+}
+
+#scoreList li:hover {
+  background: #333;
+}
+
+@keyframes fadeInScore {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+#scoreTopBar {
+  background: #111;
+  color: #00ffcc;
+  font-family: 'VT323', monospace;
+  padding: 10px 20px;
+  border: 4px solid #00ffcc;
+  box-shadow: 0 0 12px #00ffcc;
+  text-shadow: 0 0 2px #00ffcc;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 800px;
+  
+}
+
+#scoreTopBar span {
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+#gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+#mainArea {
+  display: flex;
+  gap: 20px;
+}
+
+#restartButton {
+  font-family: 'VT323', monospace;
+  font-size: 28px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  background-color: #ff69b4;
+  color: #fff;
+  border: 4px solid #fff;
+  box-shadow: 0 0 12px #ff69b4;
+  cursor: pointer;
+  text-shadow: 0 0 2px #fff;
+  animation: pulseArcade 1.2s infinite;
+}
+
+@keyframes pulseArcade {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 12px #ff69b4;
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 24px #ff69b4;
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px #ff69b4;
+    opacity: 1;
+  }
+}
