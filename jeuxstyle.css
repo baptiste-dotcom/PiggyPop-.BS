@@ -6,6 +6,8 @@ body {
   color: #fff;
   justify-content: center;
   display: flex;
+  width: 100%;
+  height: 100%
 }
 
 canvas {
@@ -214,4 +216,5 @@ canvas {
     padding: 2px 6px;
   }
 }
+
 
