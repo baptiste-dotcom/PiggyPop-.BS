@@ -13,9 +13,8 @@ function resizeCanvas() {
     canvasHeight = maxCanvasHeight;
     canvasWidth = canvasHeight * ratio;
   }
-
-  canvas.width = canvasWidth;
-  canvas.height = canvasHeight;
+canvas.style.width = canvas.width + 'px';
+canvas.style.height = canvas.height + 'px';
 }
 
 resizeCanvas();
@@ -254,6 +253,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
 
 
 
