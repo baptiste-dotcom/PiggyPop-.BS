@@ -170,15 +170,15 @@ canvas {
   }
 
   #scoreBoard {
-    width: 45vw;
-    max-width: 45vw;
+    width: 90vw;
+    max-width: 90vw;
     height: auto;
     margin-bottom: 20px;
   }
 
   #canvasWrapper {
-    width: 45vw;
-    max-width: 45vw;
+    width: 90vw;
+    max-width: 90vw;
     position: relative;
     flex-grow: 1;
   }
@@ -194,6 +194,7 @@ canvas {
 
   #scoreTopBar {
     width: 90vw;
+    max-width: 90vw;
     font-size: 18px;
     padding: 8px 16px;
   }
@@ -201,9 +202,11 @@ canvas {
   #restartButton {
     font-size: 22px;
     padding: 8px 16px;
-    margin-top: 16px;
     position: relative;
     z-index: 20;
+    display: block;
+    text-align: center;
+    margin: 20px auto 0 auto;
   }
 
   #scoreList li {
@@ -211,6 +214,3 @@ canvas {
     padding: 2px 6px;
   }
 }
-
-
-
