@@ -185,10 +185,11 @@ function checkStart() {
     for (let i = fallingAnimals.length - 1; i >= 0; i--) {
       const animal = fallingAnimals[i];
       const hitMargin = 20;
-      if (
-        x >= animal.x && x <= animal.x + 240 &&
-        y >= animal.y && y <= animal.y + 300
-      ) {
+    if (
+      x >= animal.x - hitMargin && x <= animal.x + 240 + hitMargin &&
+      y >= animal.y - hitMargin && y <= animal.y + 300 + hitMargin
+    )
+  {
         let scoreValue;
         let color;
 
@@ -251,6 +252,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
 
 
 
