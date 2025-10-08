@@ -28,7 +28,7 @@ canvas {
   flex-grow: 1;
   width: 100%;
   max-width: 100%;
-  height: 100vdh;
+  height: 100dvh;
 }
 
 #canvasWrapper:after {
@@ -194,16 +194,16 @@ canvas {
 
   #canvasWrapper {
   flex-grow: 1;
-  width: 100vdh;
-  height: 100vdh:
+  width: 100dvh;
+  height: 100dvh:
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
   canvas {
-  height: 100vdh;
-  max-height: 100vdh;
+  height: 100dvh;
+  max-height: 100dvh;
   width: auto;
   aspect-ratio: 4 / 3;
   border: 4px solid #ff69b4;
@@ -238,5 +238,6 @@ canvas {
   border-left: 4px solid #ff00ff;
   }
 }
+
 
 
