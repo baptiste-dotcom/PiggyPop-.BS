@@ -2,6 +2,10 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+window.addEventListener('resize', () => {
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+});
 
 const eauSound = new Audio('eau.mp3');
 const boumSound = new Audio('tir.mp3');
@@ -236,4 +240,5 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
 
