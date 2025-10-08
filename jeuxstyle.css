@@ -12,8 +12,8 @@ canvas {
   border: 4px solid #ff69b4;
   box-shadow: 0 0 20px #000;
   display: block;
-  max-width: 90vw;
-  max-height: 60vh;
+  max-width: 95vw;
+  max-height: 50vh;
   margin: 0 auto;
 }
 
@@ -165,4 +165,5 @@ canvas {
     width: 90vw;
   }
 }
+
 
