@@ -28,6 +28,7 @@ canvas {
   flex-grow: 1;
   width: 100%;
   max-width: 100%;
+  height: 100vdh;
 }
 
 #canvasWrapper:after {
@@ -36,7 +37,7 @@ canvas {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vdh;
   pointer-events: none;
   background-image: repeating-linear-gradient(
     to bottom,
@@ -51,6 +52,7 @@ canvas {
 #scoreBoard {
   width: 100%;
   max-width: 100%;
+  font-size: 32px;
   background: #222;
   color: #00ffcc;
   font-family: 'VT323', monospace;
@@ -63,7 +65,7 @@ canvas {
 }
 
 #scoreBoard h3 {
-  font-size: 24px;
+  font-size: 32px;
   margin-bottom: 10px;
   color: #ff00ff;
   text-shadow: 0 0 4px #ff00ff;
@@ -75,7 +77,7 @@ canvas {
 }
 
 #scoreList li {
-  font-size: 16px;
+  font-size: 32px;
   margin-bottom: 6px;
   padding: 2px 6px;
   background: #222;
@@ -101,15 +103,16 @@ canvas {
   border: 4px solid #00ffcc;
   box-shadow: 0 0 12px #00ffcc;
   text-shadow: 0 0 2px #00ffcc;
-  font-size: 20px;
   text-align: center;
   margin-bottom: 20px;
   width: 90vw;
+  font-size: 40px;
 }
 
 #scoreTopBar span {
   display: inline-block;
   padding: 10px 20px;
+  font-size: 40px;
 }
 
 #gameContainer {
@@ -122,6 +125,7 @@ canvas {
   gap: 12px;
   padding: 12px 0;
   box-sizing: border-box;
+  font-size: 40px;
 }
 
 #mainArea {
@@ -131,6 +135,7 @@ canvas {
   flex-wrap: wrap;
   align-items: flex-start;
   flex-direction: row;
+  font-size: 40px;
 }
 
 #restartButton {
@@ -184,6 +189,7 @@ canvas {
   width: 100%;
   padding: 8px 0;
   border-bottom: 2px solid #00ffcc;
+    font-size: 40px;
 }
 
   #canvasWrapper {
@@ -205,7 +211,7 @@ canvas {
   #scoreTopBar {
   width: 100%;
   text-align: center;
-  font-size: 24px;
+  font-size: 40px;
   padding: 12px;
   border-bottom: 2px solid #00ffcc;
 }
@@ -224,9 +230,10 @@ canvas {
 }
 
 #scoreList li {
-  font-size: 18px;
+  font-size: 40px;
   padding: 4px 8px;
   background: #222;
   border-left: 4px solid #ff00ff;
   }
 }
+
