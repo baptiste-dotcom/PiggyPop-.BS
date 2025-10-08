@@ -92,7 +92,7 @@ function drawGameOverOverlay() {
 
 function drawFallingAnimals() {
   fallingAnimals.forEach((animal, i) => {
-    ctx.drawImage(animalImages[animal.type], animal.x, animal.y, 120, 150);
+    ctx.drawImage(animalImages[animal.type], animal.x, animal.y, 180, 220);
     animal.y += animal.speed;
 
     if (animal.y > canvas.height) {
@@ -253,6 +253,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
 
 
 
