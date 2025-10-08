@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  padding: 40px 0;
+  padding: 20px 0;
   background: linear-gradient(to bottom, #222, #444);
   font-family: 'VT323', monospace;
   color: #fff;
   justify-content: center;
   display: flex;
-  width: 100%;
-  height: 100%
+  width: 100vw;
+  height: 100dvh;
 }
 
 canvas {
@@ -113,15 +113,15 @@ canvas {
 }
 
 #gameContainer {
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 100dvh;
+  width: 100vw;
+  justify-content: flex-start;
   align-items: center;
-  padding: 20px 0;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  gap: 12px;
+  padding: 12px 0;
+  box-sizing: border-box;
 }
 
 #mainArea {
@@ -178,61 +178,55 @@ canvas {
   }
 
   #scoreBoard {
-    width: 90vw;
-    max-width: 90vw;
-    min-height: 180px;
-    margin-bottom: 20px;
-    padding: 16px;
-  }
-
-  #canvasWrapper {
-    width: 90vw;
-    max-width: 90vw;
-    height: auto;
-    max-height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    flex-grow: 1;
-  }
-
-  canvas {
-    width: auto;
-    height: 90vh;
-    max-height: 90vh;
-    objectif-fit: contain;
-    aspect-ratio: 4/3;
-    margin: 0;
-    position: relative;
-    z-index: 10;
-  }
-
-  #scoreTopBar {
-    width: auto;
-    min-height: 60px;
-    font-size: 18px;
-    padding: 12px 20px;
-  }
-
-  #restartButton {
-    font-size: 22px;
-    padding: 8px 16px;
-    position: relative;
-    z-index: 20;
-    display: block;
-    text-align: center;
-    margin: 20px auto 0 auto;
-  }
-
-  #scoreList li {
-    font-size: 16px;
-    padding: 2px 6px;
-  }
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 0;
+  border-bottom: 2px solid #00ffcc;
 }
 
+  #canvasWrapper {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+  canvas {
+  height: 100%;
+  max-height: 100%;
+  aspect-ratio: 4 / 3;
+  border: 4px solid #ff69b4;
+  box-shadow: 0 0 20px #000;
+}
 
+  #scoreTopBar {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  padding: 12px;
+  border-bottom: 2px solid #00ffcc;
+}
 
+  #restartButton {
+  margin: 12px auto;
+  display: block;
+  font-size: 22px;
+  padding: 8px 16px;
+  background-color: #ff69b4;
+  color: #fff;
+  border: 4px solid #fff;
+  box-shadow: 0 0 12px #ff69b4;
+  cursor: pointer;
+  text-align: center;
+}
 
-
+#scoreList li {
+  font-size: 18px;
+  padding: 4px 8px;
+  background: #222;
+  border-left: 4px solid #ff00ff;
+  }
+}
