@@ -13,16 +13,19 @@ canvas {
   box-shadow: 0 0 20px #000;
   display: block;
   margin: 0 auto;
-  width: 90vw;
-  max-width: 90vw;
+  width: 100%;
+  max-width: 100%;
   height: auto;
   z-index: 2;
+  position: relative;
 }
 
 #canvasWrapper {
   position: relative;
   margin-top: 0;
   flex-grow: 1;
+  width: 100%;
+  max-width: 100%;
 }
 
 #canvasWrapper:after {
@@ -44,7 +47,8 @@ canvas {
 }
 
 #scoreBoard {
-  width: 90vw;
+  width: 100%;
+  max-width: 100%;
   background: #222;
   color: #00ffcc;
   font-family: 'VT323', monospace;
@@ -160,14 +164,8 @@ canvas {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
+    flex-direction: row;
   }
 }
-
-
-
-
-
-
-
