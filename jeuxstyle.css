@@ -111,11 +111,9 @@ canvas {
 }
 
 #gameContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
   max-width: 1400px;
+  margin: 0 auto;
 }
 
 #mainArea {
@@ -213,5 +211,6 @@ canvas {
     padding: 2px 6px;
   }
 }
+
 
 
