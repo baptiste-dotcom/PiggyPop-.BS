@@ -2,8 +2,8 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 function resizeCanvas() {
-  const ratio = 3 / 4;
-  const maxCanvasWidth = window.innerWidth * 0.6;
+  const ratio = 9 / 16;
+  const maxCanvasWidth = window.innerWidth * 0.9;
   const maxCanvasHeight = window.innerHeight * 0.9;
 
   let canvasWidth = maxCanvasWidth;
@@ -256,6 +256,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
 
 
 
