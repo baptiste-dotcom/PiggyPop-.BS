@@ -188,13 +188,21 @@ canvas {
   #canvasWrapper {
     width: 90vw;
     max-width: 90vw;
+    height: auto;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     flex-grow: 1;
   }
 
   canvas {
     width: auto;
-    height: 70vh;
+    height: 90vh;
+    max-height: 90vh;
+    objectif-fit: contain;
+    aspect-ratio: 4/3;
     margin: 0;
     position: relative;
     z-index: 10;
@@ -222,6 +230,7 @@ canvas {
     padding: 2px 6px;
   }
 }
+
 
 
 
