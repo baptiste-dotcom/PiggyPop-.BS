@@ -164,21 +164,23 @@ canvas {
 @media (max-width: 768px) {
   #mainArea {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 20px;
   }
 
   #scoreBoard {
-    width: 90vw;
-    max-width: 90vw;
+    width: 45vw;
+    max-width: 45vw;
     height: auto;
     margin-bottom: 20px;
   }
 
   #canvasWrapper {
-    width: 90vw;
-    max-width: 90vw;
+    width: 45vw;
+    max-width: 45vw;
     position: relative;
     flex-grow: 1;
   }
@@ -211,4 +213,5 @@ canvas {
     padding: 2px 6px;
   }
 }
+
 
