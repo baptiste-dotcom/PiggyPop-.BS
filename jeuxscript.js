@@ -3,27 +3,27 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const eauSound = new Audio('sounds/eau.mp3');
-const boumSound = new Audio('sounds/tir.mp3');
-const gameOverSound = new Audio('sounds/boum.mp3');
+const eauSound = new Audio('eau.mp3');
+const boumSound = new Audio('tir.mp3');
+const gameOverSound = new Audio('boum.mp3');
 
 let isGameOver = false;
 let floatingScores = [];
 
 const pigImg = new Image();
-pigImg.src = 'images/piggy.png';
+pigImg.src = 'piggy.png';
 pigImg.onload = checkStart;
 
 const duckImg = new Image();
-duckImg.src = 'images/duck.png';
+duckImg.src = 'duck.png';
 duckImg.onload = checkStart;
 
 const sheepImg = new Image();
-sheepImg.src = 'images/sheep.png';
+sheepImg.src = 'sheep.png';
 sheepImg.onload = checkStart;
 
 const cowImg = new Image();
-cowImg.src = 'images/cow.png';
+cowImg.src = 'cow.png';
 cowImg.onload = checkStart;
 
 const animalTypes = ['pig', 'duck', 'sheep', 'cow'];
@@ -236,3 +236,4 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
