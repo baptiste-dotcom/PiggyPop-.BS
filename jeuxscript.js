@@ -227,20 +227,24 @@ function checkStart() {
     }
   }
 
-  canvas.addEventListener('click', function (e) {
-    const rect = canvas.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const clickY = e.clientY - rect.top;
-    handleClick(clickX, clickY);
-  });
+canvas.addEventListener('click', function (e) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const clickX = (e.clientX - rect.left) * scaleX;
+  const clickY = (e.clientY - rect.top) * scaleY;
+  handleClick(clickX, clickY);
+});
 
-  canvas.addEventListener('touchstart', function (e) {
-    const touch = e.touches[0];
-    const rect = canvas.getBoundingClientRect();
-    const touchX = touch.clientX - rect.left;
-    const touchY = touch.clientY - rect.top;
-    handleClick(touchX, touchY);
-  });
+canvas.addEventListener('touchstart', function (e) {
+  const touch = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const touchX = (touch.clientX - rect.left) * scaleX;
+  const touchY = (touch.clientY - rect.top) * scaleY;
+  handleClick(touchX, touchY);
+});
 
   imagesLoaded++;
   if (imagesLoaded === 4) {
@@ -256,6 +260,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
 
 
 
