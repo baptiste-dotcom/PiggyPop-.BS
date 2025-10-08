@@ -124,6 +124,7 @@ canvas {
   justify-content: center;
   flex-wrap: wrap;
   align-items: flex-start;
+  flex-direction: row;
 }
 
 #restartButton {
@@ -138,6 +139,8 @@ canvas {
   cursor: pointer;
   text-shadow: 0 0 2px #fff;
   animation: pulseArcade 1.2s infinite;
+  position: relative;
+  z-index: 20;
 }
 
 @keyframes pulseArcade {
@@ -199,6 +202,8 @@ canvas {
     font-size: 22px;
     padding: 8px 16px;
     margin-top: 16px;
+    position: relative;
+    z-index: 20;
   }
 
   #scoreList li {
@@ -206,3 +211,4 @@ canvas {
     padding: 2px 6px;
   }
 }
+
