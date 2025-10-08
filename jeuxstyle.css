@@ -21,8 +21,8 @@ canvas {
 #canvasWrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start;
+  height: auto;
   position: relative;
 }
 
@@ -119,6 +119,7 @@ canvas {
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 #restartButton {
@@ -195,3 +196,4 @@ canvas {
     padding: 2px 6px;
   }
 }
+
