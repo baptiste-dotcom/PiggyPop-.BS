@@ -21,6 +21,7 @@ canvas {
 #canvasWrapper {
   position: relative;
   margin-top: 0;
+  flex-grow: 1;
 }
 
 #canvasWrapper:after {
@@ -160,6 +161,7 @@ canvas {
     align-items: flex-start;
   }
 }
+
 
 
 
