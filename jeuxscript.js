@@ -3,20 +3,21 @@ const ctx = canvas.getContext('2d');
 
 function resizeCanvas() {
   const ratio = 4 / 3;
-  const targetWidth = window.innerWidth;
-  const targetHeight = window.innerHeight;
+  const maxCanvasWidth = window.innerWidth * 0.6;
+  const maxCanvasHeight = window.innerHeight * 0.8;
 
-  let canvasWidth = targetWidth;
+  let canvasWidth = maxCanvasWidth;
   let canvasHeight = canvasWidth / ratio;
 
-  if (canvasHeight > targetHeight) {
-    canvasHeight = targetHeight;
+  if (canvasHeight > maxCanvasHeight) {
+    canvasHeight = maxCanvasHeight;
     canvasWidth = canvasHeight * ratio;
   }
 
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
 }
+
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
@@ -253,6 +254,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
 
 
 
