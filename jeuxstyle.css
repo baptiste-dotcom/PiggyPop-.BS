@@ -16,6 +16,7 @@ canvas {
   width: 90vw;
   max-width: 90vw;
   height: auto;
+  z-index: 2;
 }
 
 #canvasWrapper {
@@ -39,7 +40,7 @@ canvas {
     transparent 1px,
     transparent 2px
   );
-  z-index: 2;
+  z-index: 1;
 }
 
 #scoreBoard {
@@ -163,6 +164,7 @@ canvas {
     flex-direction: column;
   }
 }
+
 
 
 
