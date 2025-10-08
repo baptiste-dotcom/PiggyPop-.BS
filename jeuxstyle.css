@@ -18,8 +18,10 @@ canvas {
 }
 
 #canvasWrapper {
-    position: relative;
-    width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #canvasWrapper:after {
@@ -165,6 +167,7 @@ canvas {
     width: 90vw;
   }
 }
+
 
 
 
