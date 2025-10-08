@@ -161,11 +161,48 @@ canvas {
 @media (max-width: 768px) {
   #mainArea {
     display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
     flex-direction: column;
-    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #scoreBoard {
+    width: 90vw;
+    max-width: 90vw;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  #canvasWrapper {
+    width: 90vw;
+    max-width: 90vw;
+    position: relative;
+    flex-grow: 1;
+  }
+
+  canvas {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  #scoreTopBar {
+    width: 90vw;
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  #restartButton {
+    font-size: 22px;
+    padding: 8px 16px;
+    margin-top: 16px;
+  }
+
+  #scoreList li {
+    font-size: 16px;
+    padding: 2px 6px;
   }
 }
