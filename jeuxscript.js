@@ -113,17 +113,6 @@ function triggerGameOver() {
   gameOverSound.play();
   saveScore(currentScore);
   document.getElementById('restartButton').style.display = 'block';
-
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.font = '72px VT323';
-  ctx.fillStyle = '#ff0033';
-  ctx.textAlign = 'center';
-  ctx.textShadow = '0 0 10px #ff0033';
-  ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 40);
-
-  document.getElementById('restartButton').style.display = 'block';
 }
 
 function drawFloatingScores() {
@@ -150,6 +139,7 @@ function gameLoop() {
   
   if (isGameOver) {
     drawGameOverOverlay();
+    ctx.font = canvas.width < 600 ? '72px VT323' : '96px VT323';
     return;
   }
   requestAnimationFrame(gameLoop);
@@ -260,6 +250,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
 
 
 
