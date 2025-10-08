@@ -4,8 +4,6 @@ body {
   background: linear-gradient(to bottom, #222, #444);
   font-family: 'VT323', monospace;
   color: #fff;
-  justify-content: center;
-  display: flex;
   width: 100vw;
   height: 100dvh;
 }
@@ -238,6 +236,7 @@ canvas {
   border-left: 4px solid #ff00ff;
   }
 }
+
 
 
 
