@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('cloudIntro').classList.remove('hidden');
   });
 
-  // Bouton "CONTINUER" — disparition animée du nuage + redirection
+  // Bouton "CONTINUER" — disparition animée du nuage uniquement
   ['click', 'touchstart'].forEach(evt => {
     document.getElementById('continueButton').addEventListener(evt, function() {
       const cloud = document.getElementById('cloudIntro');
@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       setTimeout(() => {
         cloud.parentNode.removeChild(cloud);
-        window.location.href = "jeux.html"; // redirection vers la page du jeu
-      }, 600); // durée du fondu
+      }, 600);
     });
   });
 
