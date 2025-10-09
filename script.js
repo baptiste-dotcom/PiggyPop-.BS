@@ -1,12 +1,13 @@
-document.getElementById('play-btn').addEventListener('click', function(e) {
-  e.preventDefault();
-  document.getElementById('cloudIntro').classList.remove('hidden');
-});
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById('play-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('cloudIntro').classList.remove('hidden');
+  });
 
   document.getElementById('continueButton').addEventListener('click', function() {
-  document.getElementById('cloudIntro').style.display = 'none';
-  console.log("CONTINUER cliqué");
-});
+    document.getElementById('cloudIntro').style.display = 'none';
+    console.log("CONTINUER cliqué");
+  });
 
   document.getElementById("quit-btn").addEventListener("click", () => {
     document.getElementById("quit-dialog").classList.remove("hidden");
@@ -25,5 +26,3 @@ document.getElementById('play-btn').addEventListener('click', function(e) {
     }, 5000);
   });
 });
-
-
