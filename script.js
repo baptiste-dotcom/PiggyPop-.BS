@@ -3,9 +3,12 @@ document.getElementById('play-btn').addEventListener('click', function(e) {
   document.getElementById('cloudIntro').classList.remove('hidden');
 });
 
-document.getElementById('continueButton').addEventListener('click', function() {
-  document.getElementById('cloudIntro').classList.add('hidden');
-});
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById('continueButton').addEventListener('click', function() {
+    document.getElementById('cloudIntro').classList.add('hidden');
+  });
+
+console.log("CONTINUER cliqué");
 
 document.getElementById("quit-btn").addEventListener("click", () => {
   document.getElementById("quit-dialog").classList.remove("hidden");
@@ -24,6 +27,7 @@ document.getElementById("exit-btn").addEventListener("click", () => {
   }, 5000);
 
 });
+
 
 
 
