@@ -4,6 +4,7 @@ document.getElementById('play-btn').addEventListener('click', function(e) {
 });
 
 document.getElementById('continueButton').addEventListener('click', function() {
+  window.location.href = 'index.html';
   document.getElementById('cloudIntro').classList.add('hidden');
 });
 
@@ -24,4 +25,5 @@ document.getElementById("exit-btn").addEventListener("click", () => {
   }, 5000);
 
 });
+
 
