@@ -1,6 +1,5 @@
 @font-face {
-  font-family: 'VT323';
-  src: url('fonts/VT323-Regular.ttf') format('truetype');
+  font-family: 'VT323', monospace;
   font-weight: normal;
   font-style: normal;
 }
@@ -222,4 +221,5 @@ h1 {
   75%  { transform: scale(1.05); box-shadow: 0 0 16px #ff69b4; opacity: 0.9; }
   100% { transform: scale(1); box-shadow: 0 0 12px #ff69b4; opacity: 1; }
 }
+
 
