@@ -18,6 +18,10 @@ body {
   text-align: center;
 }
 
+.hidden {
+  display: none !important;
+}
+
 h1 {
   font-size: 6em;
   margin-bottom: 50px;
@@ -217,6 +221,7 @@ h1 {
   75%  { transform: scale(1.05); box-shadow: 0 0 16px #ff69b4; opacity: 0.9; }
   100% { transform: scale(1); box-shadow: 0 0 12px #ff69b4; opacity: 1; }
 }
+
 
 
 
