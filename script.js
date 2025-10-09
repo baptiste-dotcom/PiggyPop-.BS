@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
   // Bouton "Lance-toi dans l’épopée céleste"
-  document.getElementById('play-btn').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('cloudIntro').classList.remove('hidden');
-  });
+ document.getElementById('play-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.location.href = "jeux.html";
+});
 
   // Bouton "CONTINUER" — disparition animée du nuage uniquement
   ['click', 'touchstart'].forEach(evt => {
@@ -38,3 +38,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 5000);
   });
 });
+
