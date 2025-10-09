@@ -4,16 +4,15 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('cloudIntro').classList.remove('hidden');
   });
 
-document.getElementById('continueButton').addEventListener('click', function() {
-  const cloud = document.getElementById('cloudIntro');
-  cloud.style.transition = 'opacity 0.6s ease';
-  cloud.style.opacity = '0';
+  document.getElementById('continueButton').addEventListener('click', function() {
+    const cloud = document.getElementById('cloudIntro');
+    cloud.classList.add('fade-out');
+    console.log("CONTINUER cliqué");
 
-  setTimeout(() => {
-    cloud.parentNode.removeChild(cloud);
-    console.log("Nuage supprimé avec fondu");
-  }, 600);
-});
+    setTimeout(() => {
+      cloud.parentNode.removeChild(cloud);
+    }, 600); // durée du fondu
+  });
 
   document.getElementById("quit-btn").addEventListener("click", () => {
     document.getElementById("quit-dialog").classList.remove("hidden");
