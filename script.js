@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
       cloud.style.display = 'none';
     }, 600);
   });
-});
 
   document.getElementById("quit-btn").addEventListener("click", () => {
     document.getElementById("quit-dialog").classList.remove("hidden");
@@ -33,5 +32,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 5000);
   });
 });
-
-
