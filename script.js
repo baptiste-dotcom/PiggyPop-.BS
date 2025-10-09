@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('cloudIntro').classList.remove('hidden');
   });
 
-  document.getElementById('continueButton').addEventListener('click', function() {
-    document.getElementById('cloudIntro').style.display = 'none';
-    console.log("CONTINUER cliqué");
+ document.getElementById('continueButton').addEventListener('click', function() {
+  document.getElementById('cloudIntro').classList.add('hidden');
+   console.log("CONTINUER cliqué");
   });
 
   document.getElementById("quit-btn").addEventListener("click", () => {
@@ -26,3 +26,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 5000);
   });
 });
+
