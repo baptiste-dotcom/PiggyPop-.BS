@@ -8,27 +8,22 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('cloudIntro').classList.add('hidden');
   });
 
-console.log("CONTINUER cliqué");
+  console.log("CONTINUER cliqué");
 
-document.getElementById("quit-btn").addEventListener("click", () => {
-  document.getElementById("quit-dialog").classList.remove("hidden");
+  document.getElementById("quit-btn").addEventListener("click", () => {
+    document.getElementById("quit-dialog").classList.remove("hidden");
+  });
+
+  document.getElementById("stay-btn").addEventListener("click", () => {
+    document.getElementById("quit-dialog").classList.add("hidden");
+  });
+
+  document.getElementById("exit-btn").addEventListener("click", () => {
+    document.getElementById("quit-dialog").classList.add("hidden");
+    document.getElementById("crying-pig").classList.remove("hidden");
+
+    setTimeout(() => {
+      window.close();
+    }, 5000);
+  });
 });
-
-document.getElementById("stay-btn").addEventListener("click", () => {
-  document.getElementById("quit-dialog").classList.add("hidden");
-});
-
-document.getElementById("exit-btn").addEventListener("click", () => {
-  document.getElementById("quit-dialog").classList.add("hidden");
-  document.getElementById("crying-pig").classList.remove("hidden");
-
-  setTimeout(() => {
-    window.close();
-  }, 5000);
-
-});
-
-
-
-
-
