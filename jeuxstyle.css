@@ -237,3 +237,28 @@ canvas {
   }
 }
 
+.neon-blue {
+  animation: neonPulseBlue 1.5s infinite ease-in-out;
+}
+
+@keyframes neonPulseBlue {
+  0%, 100% {
+    box-shadow: 0 0 8px #00ccff, 0 0 16px #00ccff, 0 0 24px #00ccff;
+  }
+  50% {
+    box-shadow: 0 0 4px #00ccff, 0 0 8px #00ccff, 0 0 12px #00ccff;
+  }
+}
+
+.neon-pink {
+  animation: neonPulsePink 1.5s infinite ease-in-out;
+}
+
+@keyframes neonPulsePink {
+  0%, 100% {
+    box-shadow: 0 0 8px #ff00cc, 0 0 16px #ff00cc, 0 0 24px #ff00cc;
+  }
+  50% {
+    box-shadow: 0 0 4px #ff00cc, 0 0 8px #ff00cc, 0 0 12px #ff00cc;
+  }
+}
