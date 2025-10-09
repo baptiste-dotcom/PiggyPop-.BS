@@ -3,8 +3,8 @@ document.getElementById('play-btn').addEventListener('click', function(e) {
   document.getElementById('cloudIntro').classList.remove('hidden');
 });
 
-document.getElementById('startGameButton').addEventListener('click', function() {
-  window.location.href = 'jeux.html';
+document.getElementById('continueButton').addEventListener('click', function() {
+  document.getElementById('cloudIntro').classList.add('hidden');
 });
 
 document.getElementById("quit-btn").addEventListener("click", () => {
@@ -24,3 +24,4 @@ document.getElementById("exit-btn").addEventListener("click", () => {
   }, 5000);
 
 });
+
