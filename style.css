@@ -110,10 +110,6 @@ h1 {
   font-size: 1.2em;
 }
 
-.hidden {
-  display: none !important;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateX(-50%) scale(0.8); }
   to { opacity: 1; transform: translateX(-50%) scale(1); }
@@ -221,6 +217,7 @@ h1 {
   75%  { transform: scale(1.05); box-shadow: 0 0 16px #ff69b4; opacity: 0.9; }
   100% { transform: scale(1); box-shadow: 0 0 12px #ff69b4; opacity: 1; }
 }
+
 
 
 
