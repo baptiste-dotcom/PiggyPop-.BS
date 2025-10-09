@@ -198,11 +198,11 @@ h1 {
 #cloudText p {
   font-size: 28px;
   margin-bottom: 30px;
-  color: #fff;
-  text-shadow: 0 0 4px #ff69b4;
+  color: #000;
+  text-shadow: 0 0 2px #fff;
 }
 
-#startGameButton {
+#continueButton {
   font-size: 40px;
   padding: 12px 24px;
   background-color: #ff69b4;
@@ -222,3 +222,4 @@ h1 {
   75%  { transform: scale(1.05); box-shadow: 0 0 16px #ff69b4; opacity: 0.9; }
   100% { transform: scale(1); box-shadow: 0 0 12px #ff69b4; opacity: 1; }
 }
+
