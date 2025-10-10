@@ -65,8 +65,8 @@ let fallingAnimals = [];
 
 function spawnAnimal(columnX) {
   const type = animalTypes[Math.floor(Math.random() * animalTypes.length)];
-  const baseSpeed = Math.random() * 3 + 2;
-  const speedMultiplier = Math.min(1 + currentScore / 300, 2.5);
+  const baseSpeed = Math.random() * 4 + 3;
+  const speedMultiplier = Math.min(1 + currentScore / 300, 3.5);
   const finalSpeed = baseSpeed * speedMultiplier;
 
   fallingAnimals.push({
@@ -81,7 +81,7 @@ setInterval(() => {
   spawnAnimal(100);
   spawnAnimal(350);
   spawnAnimal(600);
-}, 1000);
+}, 1200);
 
 let currentScore = 0;
 let bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
@@ -312,4 +312,5 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
