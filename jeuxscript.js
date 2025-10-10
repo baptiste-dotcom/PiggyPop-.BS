@@ -39,7 +39,7 @@ let imagesLoaded = 0;
 function checkStart() {
   imagesLoaded++;
   if (imagesLoaded === 4) {
-    renderScores();
+    renderBestScore();
     gameLoop();
   }
 }
@@ -84,6 +84,7 @@ setInterval(() => {
 }, 1000);
 
 let currentScore = 0;
+let bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
 let comboCharge = 5;
 let comboLevel = 0;
 
@@ -127,4 +128,183 @@ function drawFallingAnimals() {
       if (animal.type === 'pig') {
         triggerGameOver();
       } else {
-        fallingAnimals.splice(i
+        fallingAnimals.splice(i, 1);
+      }
+    }
+  });
+}
+
+function triggerGameOver() {
+  isGameOver = true;
+  gameOverSound.play();
+  saveScore(currentScore);
+  document.getElementById('restartButton').style.display = 'block';
+}
+
+function drawFloatingScores() {
+  floatingScores.forEach((score, index) => {
+    ctx.font = '80px VT323';
+    ctx.fillStyle = `rgba(${hexToRgb(score.color)}, ${score.opacity})`;
+    ctx.textAlign = 'center';
+    ctx.save();
+    ctx.translate(score.x, score.y);
+    ctx.scale(1 + score.opacity * 0.2, 1 + score.opacity * 0.2);
+    ctx.fillText(score.text, 0, 0);
+    ctx.restore();
+
+    score.y -= 1;
+    score.opacity -= 0.02;
+
+    if (score.opacity <= 0) {
+      floatingScores.splice(index, 1);
+    }
+  });
+}
+
+function gameLoop() {
+  drawBackground();
+  drawFallingAnimals();
+  updateScoreDisplay();
+  drawFloatingScores();
+
+  if (isGameOver) {
+    drawGameOverOverlay();
+    return;
+  }
+  requestAnimationFrame(gameLoop);
+}
+
+function saveScore(newScore) {
+  if (newScore > bestScore) {
+    bestScore = newScore;
+    localStorage.setItem('bestScore', bestScore);
+    showNewRecordFlash();
+  }
+  renderBestScore();
+}
+
+function showNewRecordFlash() {
+  const flash = document.createElement('div');
+  flash.id = 'newRecordFlash';
+  flash.textContent = '🌟 NEW RECORD!';
+  document.body.appendChild(flash);
+  setTimeout(() => flash.remove(), 1500);
+}
+
+function renderBestScore() {
+  document.getElementById('highScoreDisplay').textContent =
+    `🏆 Meilleur score : ${bestScore} pts`;
+}
+
+function updateScoreDisplay() {
+  const scoreDisplay = document.getElementById('currentScore');
+  scoreDisplay.textContent = `Score : ${currentScore.toString().padStart(4, '0')} pts`;
+}
+
+function hexToRgb(hex) {
+  const bigint = parseInt(hex.replace('#', ''), 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `${r}, ${g}, ${b}`;
+}
+
+canvas.addEventListener('click', function (e) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const clickX = (e.clientX - rect.left) * scaleX;
+  const clickY = (e.clientY - rect.top) * scaleY;
+  handleClick(clickX, clickY);
+});
+
+canvas.addEventListener('touchstart', function (e) {
+  const touch = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const touchX = (touch.clientX - rect.left) * scaleX;
+  const touchY = (touch.clientY - rect.top) * scaleY;
+  handleClick(touchX, touchY);
+});
+
+function handleClick(x, y) {
+  for (let i = fallingAnimals.length - 1; i >= 0; i--) {
+    const animal = fallingAnimals[i];
+    const hitMargin = 20;
+    if (
+      x >= animal.x - hitMargin && x <= animal.x + 240 + hitMargin &&
+      y >= animal.y - hitMargin && y <= animal.y + 300 + hitMargin
+    ) {
+      let scoreValue;
+      let color;
+
+      if (animal.type === 'pig') {
+        eauSound.play();
+        comboCharge--;
+
+        let bonus = 0;
+        if (comboCharge === 0) {
+          comboLevel++;
+          bonus = getComboBonus(comboLevel);
+          comboCharge = 5;
+        }
+
+        currentScore += 30 + bonus;
+        scoreValue = `+${30 + bonus}`;
+        color = '#00ffcc';
+
+        floatingScores.push({
+          text: scoreValue,
+          x: animal.x + 60,
+          y: animal.y,
+          opacity: 1,
+          color: color
+        });
+
+        if (bonus > 0) {
+          floatingScores.push({
+            text: `🌟 COMBO LV${comboLevel} +${bonus}`,
+            x: animal.x + 60,
+            y: animal.y - 40,
+            opacity: 1,
+            color: '#ff00ff'
+          });
+        }
+
+        updateComboChargeDisplay();
+      } else {
+        boumSound.play();
+        scoreValue = '-10';
+        currentScore = Math.max(0, currentScore - 10);
+        color = '#ff0033';
+                comboCharge = 5;
+        comboLevel = 0;
+
+        floatingScores.push({
+          text: scoreValue,
+          x: animal.x + 60,
+          y: animal.y,
+          opacity: 1,
+          color: color
+        });
+
+        updateComboChargeDisplay();
+      }
+
+      fallingAnimals.splice(i, 1);
+      break;
+    }
+  }
+}
+document.getElementById('restartButton').addEventListener('click', () => {
+  isGameOver = false;
+  currentScore = 0;
+  comboCharge = 5;
+  comboLevel = 0;
+  fallingAnimals = [];
+  document.getElementById('restartButton').style.display = 'none';
+  renderBestScore();
+  updateComboChargeDisplay();
+  gameLoop();
+});
