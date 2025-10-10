@@ -339,3 +339,28 @@ canvas {
   }
 }
 
+#scoreContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 40px;
+}
+
+#highScoreDisplay {
+  font-size: 32px;
+  font-family: 'VT323', monospace;
+  color: #ffcc00;
+  text-shadow: 0 0 8px #ffcc00;
+}
+
+#currentScore {
+  font-size: 64px;
+  font-family: 'VT323', monospace;
+  color: #00ffff;
+  text-shadow: 0 0 12px #00ffff;
+  margin: 0 auto;
+  text-align: center;
+  flex-grow: 1;
+}
+
