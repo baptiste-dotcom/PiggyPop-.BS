@@ -79,6 +79,18 @@ let currentScore = 0;
 let comboCount = 0;
 let maxCombo = 0;
 
+function getComboBonus(comboCount) {
+  switch (comboCount) {
+    case 5: return 100;
+    case 10: return 200;
+    case 15: return 350;
+    case 20: return 550;
+    case 25: return 750;
+    case 30: return 1000;
+    default: return 0;
+  }
+}
+
 function drawBackground() {
   ctx.fillStyle = '#333';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -174,6 +186,15 @@ function renderScores() {
 function updateScoreDisplay() {
   const scoreDisplay = document.getElementById('currentScore');
   scoreDisplay.textContent = `Score : ${currentScore.toString().padStart(4, '0')} pts`;
+  function updateComboDisplay() {
+  const comboEl = document.getElementById('comboDisplay');
+  comboEl.textContent = `🔥 COMBO : ${comboCount}`;
+  if (comboCount >= 5) {
+    comboEl.classList.add('combo-flash');
+  } else {
+    comboEl.classList.remove('combo-flash');
+  }
+}
 }
 
 function hexToRgb(hex) {
@@ -200,28 +221,34 @@ function checkStart() {
         let color;
 
         if (animal.type === 'pig') {
-          eauSound.play();
-          scoreValue = '+30';
-          currentScore += 30;
-          color = '#00ffcc';
-          comboCount++;
-          if (comboCount > maxCombo) maxCombo = comboCount;
-        } else {
-          boumSound.play();
-          scoreValue = '-10';
-          currentScore = Math.max(0, currentScore - 10);
-          color = '#ff0033';
-          comboCount = 0;
-        }
+  eauSound.play();
+  comboCount++;
+  if (comboCount > maxCombo) maxCombo = comboCount;
 
-        floatingScores.push({
-          text: scoreValue,
-          x: animal.x + 60,
-          y: animal.y,
-          opacity: 1,
-          color: color
-        });
+  const bonus = getComboBonus(comboCount);
+  const baseScore = 30;
+  currentScore += baseScore + bonus;
+  scoreValue = `+${baseScore + bonus}`;
+  color = '#00ffcc';
 
+  floatingScores.push({
+    text: scoreValue,
+    x: animal.x + 60,
+    y: animal.y,
+    opacity: 1,
+    color: color
+  });
+
+  if (bonus > 0) {
+    floatingScores.push({
+      text: `🔥 BONUS +${bonus}`,
+      x: animal.x + 60,
+      y: animal.y - 40,
+      opacity: 1,
+      color: '#ff00ff'
+    });
+  }
+}
         fallingAnimals.splice(i, 1);
         break;
       }
@@ -261,3 +288,4 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
+
