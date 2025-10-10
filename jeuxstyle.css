@@ -111,11 +111,11 @@ canvas {
   width: 100%;
 }
 
-#highScoreDisplay {
+#scoreboard h3 span#highScoreDisplay {
   font-size: 32px;
   color: #ffcc00;
   text-shadow: 0 0 8px #ffcc00;
-  padding-left: 20px;
+  text-align: center;
 }
 
 #currentScore {
@@ -256,3 +256,4 @@ canvas {
     opacity: 0;
   }
 }
+
