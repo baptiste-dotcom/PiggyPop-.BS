@@ -187,6 +187,9 @@ scoreList.appendChild(li);
 function updateScoreDisplay() {
   const scoreDisplay = document.getElementById('currentScore');
   scoreDisplay.textContent = `Score : ${currentScore.toString().padStart(4, '0')} pts`;
+
+  const highScoreDisplay = document.getElementById('highScoreDisplay');
+  highScoreDisplay.textContent = `🏆 Meilleur score : ${highScores[0]} pts`;
 }
 
 function updateComboDisplay() {
@@ -293,4 +296,5 @@ function checkStart() {
     const touch = e.touches[0];
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width
+
 
