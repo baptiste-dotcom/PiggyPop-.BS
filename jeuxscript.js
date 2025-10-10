@@ -188,7 +188,7 @@ function showNewRecordFlash() {
   flash.id = 'newRecordFlash';
   flash.textContent = '🌟 NEW RECORD!';
   document.body.appendChild(flash);
-  setTimeout(() => flash.remove(), 1500);
+  setTimeout(() => flash.remove(), 5000);
 }
 
 function renderBestScore() {
@@ -312,6 +312,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
