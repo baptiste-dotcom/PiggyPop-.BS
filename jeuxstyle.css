@@ -111,7 +111,7 @@ canvas {
   width: 100%;
 }
 
-#scoreboard h3 span#highScoreDisplay {
+#scoreBoard h3 span#highScoreDisplay {
   font-size: 32px;
   color: #ffcc00;
   text-shadow: 0 0 8px #ffcc00;
@@ -226,6 +226,7 @@ canvas {
   box-shadow: 0 0 16px #00ffcc;
   border-radius: 8px;
   align-self: flex-start;
+  animation: comboPulseBig 0.8s ease-out;
 }
 
 #newRecordFlash {
@@ -256,4 +257,5 @@ canvas {
     opacity: 0;
   }
 }
+
 
