@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-    <html lang="fr">
-        <head>
-            <meta charset="utf-8">
-            <title>Piggy Pop!</title>
-            <link rel="stylesheet" href="jeuxstyle.css">
-            <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-        </head>
-        <body>
-            <div id="gameContainer">
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Piggy Pop!</title>
+  <link rel="stylesheet" href="jeuxstyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="gameContainer">
 
-            <div id="scoreTopBar" class="neon-blue">
-                <span id="currentScore">Score : 0000 pts</span>
-            </div>
+    <div id="scoreTopBar" class="neon-blue">
+      <div id="scoreBar">
+        <span id="highScoreDisplay">🏆 Meilleur score : 000000 pts</span>
+        <span id="currentScore">Score : 000000 pts</span>
+      </div>
+    </div>
 
-            <div id="mainArea">
-            <div id="scoreBoard">
-                <h3>🏆 High Scores</h3>
-                <ol id="scoreList"></ol>
-            </div>
-            <div id="comboChargeDisplay">⚡ BONUS DANS : 5</div>
-            <div id="canvasWrapper" class="neon-pink">
-                <canvas id="gameCanvas" width="800" height="600"></canvas>
-                <button id="restartButton" style="display: none;">REJOUER</button>
-            </div>
-            </div>
-            </div>
-                <script src="jeuxscript.js"></script>
-        </body>
+    <div id="mainArea">
+      <div id="scoreBoard">
+        <h3>🏆 High Scores</h3>
+        <ol id="scoreList"></ol>
+      </div>
 
-    </html>
+      <div id="comboChargeDisplay">⚡ BONUS DANS : 5</div>
 
+      <div id="canvasWrapper" class="neon-pink">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <button id="restartButton" style="display: none;">REJOUER</button>
+      </div>
+    </div>
+  </div>
 
-
-
-
+  <script src="jeuxscript.js"></script>
+</body>
+</html>
