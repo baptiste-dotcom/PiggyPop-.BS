@@ -59,7 +59,7 @@ let fallingAnimals = [];
 function spawnAnimal(columnX) {
   const type = animalTypes[Math.floor(Math.random() * animalTypes.length)];
   const baseSpeed = Math.random() * 3 + 2;
-  const speedMultiplier = 1 + currentScore / 80;
+  const speedMultiplier = Math.min(1 + currentScore / 300, 3.5);
   const finalSpeed = baseSpeed * speedMultiplier;
 
   fallingAnimals.push({
@@ -76,18 +76,22 @@ setInterval(() => {
 }, 1000);
 
 let currentScore = 0;
-let comboCount = 0;
-let maxCombo = 0;
-let activeComboBonus = 0;
 let comboCharge = 5;
+let comboLevel = 0;
 
-function updateComboBonus(comboCount) {
-  if (comboCount >= 20) activeComboBonus = 550;
-  else if (comboCount >= 15) activeComboBonus = 350;
-  else if (comboCount >= 10) activeComboBonus = 200;
-  else if (comboCount >= 5) activeComboBonus = 100;
-  else activeComboBonus = 0;
+function getComboBonus(level) {
+  switch (level) {
+    case 1: return 100;
+    case 2: return 200;
+    case 3: return 350;
+    case 4: return 550;
+    default: return 800 + (level - 4) * 250;
+  }
 }
+
+function updateComboChargeDisplay() {
+  document.getElementById('comboChargeDisplay').textContent =
+    `⚡ COMBO LV${comboLevel} — ${comboCharge} cochons avant bonus`;
 }
 
 function drawBackground() {
@@ -153,7 +157,7 @@ function gameLoop() {
   drawFallingAnimals();
   updateScoreDisplay();
   drawFloatingScores();
-  
+
   if (isGameOver) {
     drawGameOverOverlay();
     ctx.font = canvas.width < 600 ? '72px VT323' : '96px VT323';
@@ -185,15 +189,16 @@ function renderScores() {
 function updateScoreDisplay() {
   const scoreDisplay = document.getElementById('currentScore');
   scoreDisplay.textContent = `Score : ${currentScore.toString().padStart(4, '0')} pts`;
-  function updateComboDisplay() {
+}
+
+function updateComboDisplay() {
   const comboEl = document.getElementById('comboDisplay');
-  comboEl.textContent = `🔥 COMBO : ${comboCount}`;
-  if (comboCount >= 5) {
+  comboEl.textContent = `🔥 COMBO : ${comboLevel}`;
+  if (comboLevel >= 1) {
     comboEl.classList.add('combo-flash');
   } else {
     comboEl.classList.remove('combo-flash');
   }
-}
 }
 
 function hexToRgb(hex) {
@@ -211,84 +216,82 @@ function checkStart() {
     for (let i = fallingAnimals.length - 1; i >= 0; i--) {
       const animal = fallingAnimals[i];
       const hitMargin = 20;
-    if (
-      x >= animal.x - hitMargin && x <= animal.x + 240 + hitMargin &&
-      y >= animal.y - hitMargin && y <= animal.y + 300 + hitMargin
-    )
-  {
+      if (
+        x >= animal.x - hitMargin && x <= animal.x + 240 + hitMargin &&
+        y >= animal.y - hitMargin && y <= animal.y + 300 + hitMargin
+      ) {
         let scoreValue;
         let color;
 
         if (animal.type === 'pig') {
-  eauSound.play();
-comboCharge--;
+          eauSound.play();
+          comboCharge--;
 
-let bonus = 0;
-if (comboCharge === 0) {
-  bonus = 200;
-  comboCharge = 5;
-}
+          let bonus = 0;
+          if (comboCharge === 0) {
+            comboLevel++;
+            bonus = getComboBonus(comboLevel);
+            comboCharge = 5;
+          }
 
-currentScore += 30 + bonus;
-scoreValue = `+${30 + bonus}`;
-color = '#00ffcc';
+          currentScore += 30 + bonus;
+          scoreValue = `+${30 + bonus}`;
+          color = '#00ffcc';
 
-floatingScores.push({
-  text: scoreValue,
-  x: animal.x + 60,
-  y: animal.y,
-  opacity: 1,
-  color: color
-});
+          floatingScores.push({
+            text: scoreValue,
+            x: animal.x + 60,
+            y: animal.y,
+            opacity: 1,
+            color: color
+          });
 
-if (bonus > 0) {
-  floatingScores.push({
-    text: `🌟 BONUS +${bonus}`,
-    x: animal.x + 60,
-    y: animal.y - 40,
-    opacity: 1,
-    color: '#ff00ff'
-  });
-}
-}
+          if (bonus > 0) {
+            floatingScores.push({
+              text: `🌟 COMBO LV${comboLevel} +${bonus}`,
+              x: animal.x + 60,
+              y: animal.y - 40,
+              opacity: 1,
+              color: '#ff00ff'
+            });
+          }
+
+          updateComboChargeDisplay();
+        } else {
+          boumSound.play();
+          scoreValue = '-10';
+          currentScore = Math.max(0, currentScore - 10);
+          color = '#ff0033';
+          comboCharge = 5;
+          comboLevel = 0;
+
+          floatingScores.push({
+            text: scoreValue,
+            x: animal.x + 60,
+            y: animal.y,
+            opacity: 1,
+            color: color
+          });
+
+          updateComboChargeDisplay();
+        }
+
         fallingAnimals.splice(i, 1);
         break;
       }
     }
   }
 
-canvas.addEventListener('click', function (e) {
-  const rect = canvas.getBoundingClientRect();
-  const scaleX = canvas.width / rect.width;
-  const scaleY = canvas.height / rect.height;
-  const clickX = (e.clientX - rect.left) * scaleX;
-  const clickY = (e.clientY - rect.top) * scaleY;
-  handleClick(clickX, clickY);
-});
+  canvas.addEventListener('click', function (e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const clickX = (e.clientX - rect.left) * scaleX;
+    const clickY = (e.clientY - rect.top) * scaleY;
+    handleClick(clickX, clickY);
+  });
 
-canvas.addEventListener('touchstart', function (e) {
-  const touch = e.touches[0];
-  const rect = canvas.getBoundingClientRect();
-  const scaleX = canvas.width / rect.width;
-  const scaleY = canvas.height / rect.height;
-  const touchX = (touch.clientX - rect.left) * scaleX;
-  const touchY = (touch.clientY - rect.top) * scaleY;
-  handleClick(touchX, touchY);
-});
-
-  imagesLoaded++;
-  if (imagesLoaded === 4) {
-    renderScores();
-    gameLoop();
-  }
-}
-
-document.getElementById('restartButton').addEventListener('click', () => {
-  isGameOver = false;
-  currentScore = 0;
-  fallingAnimals = [];
-  document.getElementById('restartButton').style.display = 'none';
-  gameLoop();
-});
-
-
+  canvas.addEventListener('touchstart', function (e) {
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width
