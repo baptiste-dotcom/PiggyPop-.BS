@@ -71,11 +71,13 @@ function spawnAnimal(columnX) {
 }
 
 setInterval(() => {
-  spawnAnimal(200);
-  spawnAnimal(500);
+  spawnAnimal(250);
+  spawnAnimal(550);
 }, 1000);
 
 let currentScore = 0;
+let comboCount = 0;
+let maxCombo = 0;
 
 function drawBackground() {
   ctx.fillStyle = '#333';
@@ -117,10 +119,14 @@ function triggerGameOver() {
 
 function drawFloatingScores() {
   floatingScores.forEach((score, index) => {
-    ctx.font = '32px VT323';
+    ctx.font = '72px VT323';
     ctx.fillStyle = `rgba(${hexToRgb(score.color)}, ${score.opacity})`;
     ctx.textAlign = 'center';
-    ctx.fillText(score.text, score.x, score.y);
+    ctx.save();
+    ctx.translate(score.x, score.y);
+    ctx.scale(1 + score.opacity * 0.2, 1 + score.opacity * 0.2);
+    ctx.fillText(score.text, 0, 0);
+    ctx.restore();
 
     score.y -= 1;
     score.opacity -= 0.02;
@@ -198,11 +204,14 @@ function checkStart() {
           scoreValue = '+30';
           currentScore += 30;
           color = '#00ffcc';
+          comboCount++;
+          if (comboCount > maxCombo) maxCombo = comboCount;
         } else {
           boumSound.play();
           scoreValue = '-10';
           currentScore = Math.max(0, currentScore - 10);
           color = '#ff0033';
+          comboCount = 0;
         }
 
         floatingScores.push({
@@ -252,20 +261,3 @@ document.getElementById('restartButton').addEventListener('click', () => {
   document.getElementById('restartButton').style.display = 'none';
   gameLoop();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
