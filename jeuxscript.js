@@ -59,7 +59,7 @@ let fallingAnimals = [];
 function spawnAnimal(columnX) {
   const type = animalTypes[Math.floor(Math.random() * animalTypes.length)];
   const baseSpeed = Math.random() * 3 + 2;
-  const speedMultiplier = Math.min(1 + currentScore / 300, 3.5);
+  const speedMultiplier = Math.min(1 + currentScore / 300, 2.5);
   const finalSpeed = baseSpeed * speedMultiplier;
 
   fallingAnimals.push({
@@ -169,37 +169,37 @@ function gameLoop() {
 let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 function saveScore(newScore) {
-  const bestScore = Math.max(newScore, highScores[0] || 0);
+  const previousBest = highScores[0] || 0;
+  const bestScore = Math.max(newScore, previousBest);
+
+  if (newScore > previousBest) {
+    showNewRecordFlash();
+  }
+
   highScores = [bestScore];
   localStorage.setItem('highScores', JSON.stringify(highScores));
   renderScores();
 }
 
+function showNewRecordFlash() {
+  const flash = document.createElement('div');
+  flash.id = 'newRecordFlash';
+  flash.textContent = '🌟 NEW RECORD!';
+  document.body.appendChild(flash);
+  setTimeout(() => flash.remove(), 1500);
+}
+
 function renderScores() {
   const scoreList = document.getElementById('scoreList');
   scoreList.innerHTML = '';
-const li = document.createElement('li');
-li.textContent = `🏆 Meilleur score : ${highScores[0]} pts`;
-scoreList.appendChild(li);
-  });
+  const li = document.createElement('li');
+  li.textContent = `🏆 Meilleur score : ${highScores[0]} pts`;
+  scoreList.appendChild(li);
 }
 
 function updateScoreDisplay() {
   const scoreDisplay = document.getElementById('currentScore');
   scoreDisplay.textContent = `Score : ${currentScore.toString().padStart(4, '0')} pts`;
-
-  const highScoreDisplay = document.getElementById('highScoreDisplay');
-  highScoreDisplay.textContent = `🏆 Meilleur score : ${highScores[0]} pts`;
-}
-
-function updateComboDisplay() {
-  const comboEl = document.getElementById('comboDisplay');
-  comboEl.textContent = `🔥 COMBO : ${comboLevel}`;
-  if (comboLevel >= 1) {
-    comboEl.classList.add('combo-flash');
-  } else {
-    comboEl.classList.remove('combo-flash');
-  }
 }
 
 function hexToRgb(hex) {
@@ -288,13 +288,4 @@ function checkStart() {
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
     const clickX = (e.clientX - rect.left) * scaleX;
-    const clickY = (e.clientY - rect.top) * scaleY;
-    handleClick(clickX, clickY);
-  });
-
-  canvas.addEventListener('touchstart', function (e) {
-    const touch = e.touches[0];
-    const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width
-
-
+    const clickY = (e.clientY - rect.top
