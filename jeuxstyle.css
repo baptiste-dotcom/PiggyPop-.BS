@@ -262,3 +262,34 @@ canvas {
     box-shadow: 0 0 4px #ff00cc, 0 0 8px #ff00cc, 0 0 12px #ff00cc;
   }
 }
+
+.score-float {
+  position: absolute;
+  font-size: 72px;
+  font-weight: bold;
+  font-family: 'VT323', monospace;
+  animation: floatUp 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+}
+
+.score-blue {
+  color: #00ffcc;
+  text-shadow: 0 0 8px #00ffcc;
+}
+
+.score-red {
+  color: #ff3366;
+  text-shadow: 0 0 8px #ff3366;
+}
