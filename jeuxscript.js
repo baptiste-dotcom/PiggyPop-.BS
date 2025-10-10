@@ -271,6 +271,10 @@ function handleClick(x, y) {
             color: '#ff00ff'
           });
         }
+        
+        const comboDisplay = document.getElementById('comboChargeDisplay');
+        comboDisplay.classList.add('combo-flash');
+        setTimeout(() => comboDisplay.classList.remove('combo-flash'), 800);
 
         updateComboChargeDisplay();
       } else {
@@ -308,3 +312,4 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
