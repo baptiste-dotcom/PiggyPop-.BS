@@ -169,9 +169,8 @@ function gameLoop() {
 let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 function saveScore(newScore) {
-  highScores.push(newScore);
-  highScores.sort((a, b) => b - a);
-  highScores = highScores.slice(0, 5);
+  const bestScore = Math.max(newScore, highScores[0] || 0);
+  highScores = [bestScore];
   localStorage.setItem('highScores', JSON.stringify(highScores));
   renderScores();
 }
@@ -179,10 +178,9 @@ function saveScore(newScore) {
 function renderScores() {
   const scoreList = document.getElementById('scoreList');
   scoreList.innerHTML = '';
-  highScores.forEach((score, index) => {
-    const li = document.createElement('li');
-    li.textContent = `${index + 1}. ${score} pts`;
-    scoreList.appendChild(li);
+const li = document.createElement('li');
+li.textContent = `🏆 Meilleur score : ${highScores[0]} pts`;
+scoreList.appendChild(li);
   });
 }
 
@@ -295,3 +293,4 @@ function checkStart() {
     const touch = e.touches[0];
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width
+
