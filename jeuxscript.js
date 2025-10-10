@@ -231,7 +231,7 @@ canvas.addEventListener('touchstart', function (e) {
 function handleClick(x, y) {
   for (let i = fallingAnimals.length - 1; i >= 0; i--) {
     const animal = fallingAnimals[i];
-    const hitMargin = 20;
+    const hitMargin = 10;
     if (
       x >= animal.x - hitMargin && x <= animal.x + 240 + hitMargin &&
       y >= animal.y - hitMargin && y <= animal.y + 300 + hitMargin
@@ -312,6 +312,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
