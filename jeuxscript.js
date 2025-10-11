@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 function resizeCanvas() {
   const ratio = window.innerWidth / window.innerHeight < 0.6 ? 9 / 20 : 9 / 16;
   const maxCanvasWidth = window.innerWidth * 0.9;
-  const maxCanvasHeight = window.innerHeight * 0.9;
+  const maxCanvasHeight = document.documentElement.clientHeight * 0.9;
 
   let canvasWidth = maxCanvasWidth;
   let canvasHeight = canvasWidth / ratio;
@@ -213,6 +213,8 @@ function hexToRgb(hex) {
 }
 
 canvas.addEventListener('click', function (e) {
+  const spriteWidth = canvas.width / 4;
+  const spriteHeight = spriteWidth * 1.25;
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
   const scaleY = canvas.height / rect.height;
@@ -222,6 +224,8 @@ canvas.addEventListener('click', function (e) {
 });
 
 canvas.addEventListener('touchstart', function (e) {
+  const spriteWidth = canvas.width / 4;
+  const spriteHeight = spriteWidth * 1.25;
   const touch = e.touches[0];
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
@@ -236,8 +240,8 @@ function handleClick(x, y) {
     const animal = fallingAnimals[i];
     const hitMargin = 10;
     if (
-      x >= animal.x - hitMargin && x <= animal.x + 240 + hitMargin &&
-      y >= animal.y - hitMargin && y <= animal.y + 300 + hitMargin
+      x <= animal.x + spriteWidth + hitMargin
+      y <= animal.y + spriteHeight + hitMargin
     ) {
       let scoreValue;
       let color;
@@ -315,6 +319,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
