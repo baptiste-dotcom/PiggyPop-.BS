@@ -15,9 +15,10 @@ canvas {
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  height: 80dvh;
+  height: calc(100dvh - 120px); /* ou ajusté selon ton layout */
   z-index: 2;
   position: relative;
+  touch-action: manipulation;
 }
 
 #canvasWrapper {
@@ -63,7 +64,7 @@ canvas {
 }
 
 #scoreBoard h3 {
-  font-size: 32px;
+  font-size: 5vw;
   margin-bottom: 10px;
   color: #ff00ff;
   text-shadow: 0 0 4px #ff00ff;
@@ -75,7 +76,7 @@ canvas {
 }
 
 #scoreList li {
-  font-size: 32px;
+  font-size: 5vw;
   margin-bottom: 6px;
   padding: 2px 6px;
   background: #222;
@@ -112,14 +113,16 @@ canvas {
 }
 
 #scoreBoard h3 span#highScoreDisplay {
-  font-size: 32px;
+  font-size: 5vw;
   color: #ffcc00;
   text-shadow: 0 0 8px #ffcc00;
   text-align: center;
 }
 
 #currentScore {
-  font-size: 64px;
+  font-size: 5vw;
+  max-width: 100%;
+  word-wrap: break-word;
   color: #00ffff;
   text-shadow: 0 0 12px #00ffff;
   text-align: center;
@@ -151,7 +154,7 @@ canvas {
 
 #restartButton {
   font-family: 'VT323', monospace;
-  font-size: 70px;
+  font-size: 5vw;
   padding: 20px 40px;
   margin: 32px auto 0 auto;
   background-color: #ff69b4;
@@ -180,14 +183,16 @@ canvas {
   }
 
   #highScoreDisplay {
-    font-size: 48px;
+    font-size: 5vw;
     text-align: left;
     width: 100%;
     padding-left: 20px;
   }
 
   #currentScore {
-    font-size: 72px;
+    font-size: 5vw;
+    max-width: 100%;
+    word-wrap: break-word;
     text-align: center;
   }
 
@@ -197,12 +202,12 @@ canvas {
   }
 
   #scoreBoard {
-    font-size: 48px;
+    font-size: 5vw;
     padding: 8px;
   }
 
   #scoreList li {
-    font-size: 48px;
+    font-size: 5vw;
   }
 }
 
@@ -217,7 +222,9 @@ canvas {
 }
 
 #comboChargeDisplay {
-  font-size: 72px;
+  font-size: 5vw;
+  max-width: 100%;
+  word-wrap: break-word;
   font-family: 'VT323', monospace;
   color: #00ffcc;
   text-shadow: 0 0 8px #00ffcc;
@@ -235,7 +242,7 @@ canvas {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 96px;
+  font-size: 8vw;
   color: #ff00ff;
   font-family: 'VT323', monospace;
   text-shadow: 0 0 24px #ff00ff;
@@ -258,6 +265,7 @@ canvas {
     opacity: 0;
   }
 }
+
 
 
 
