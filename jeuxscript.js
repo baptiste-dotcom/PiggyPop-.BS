@@ -2,7 +2,7 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 function resizeCanvas() {
-  const ratio = 9 / 16;
+  const ratio = window.innerWidth / window.innerHeight < 0.6 ? 9 / 20 : 9 / 16;
   const maxCanvasWidth = window.innerWidth * 0.9;
   const maxCanvasHeight = window.innerHeight * 0.9;
 
@@ -112,7 +112,7 @@ function drawGameOverOverlay() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.font = '96px VT323';
+  ctx.font = `${canvas.width / 10}px VT323`;
   ctx.fillStyle = '#ff0033';
   ctx.textAlign = 'center';
   ctx.textShadow = '0 0 20px #ff0033';
@@ -121,9 +121,10 @@ function drawGameOverOverlay() {
 
 function drawFallingAnimals() {
   fallingAnimals.forEach((animal, i) => {
-    ctx.drawImage(animalImages[animal.type], animal.x, animal.y, 240, 300);
+    const spriteWidth = canvas.width / 4;
+const spriteHeight = spriteWidth * 1.25;
+ctx.drawImage(animalImages[animal.type], animal.x, animal.y, spriteWidth, spriteHeight);
     animal.y += animal.speed;
-
     if (animal.y > canvas.height) {
       if (animal.type === 'pig') {
         triggerGameOver();
@@ -312,6 +313,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
