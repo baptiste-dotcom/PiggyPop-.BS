@@ -236,13 +236,17 @@ canvas.addEventListener('touchstart', function (e) {
 });
 
 function handleClick(x, y) {
+  const spriteWidth = canvas.width / 4;
+  const spriteHeight = spriteWidth * 1.25;
   for (let i = fallingAnimals.length - 1; i >= 0; i--) {
     const animal = fallingAnimals[i];
     const hitMargin = 10;
     if (
-      x <= animal.x + spriteWidth + hitMargin
-      y <= animal.y + spriteHeight + hitMargin
-    ) {
+  x >= animal.x - hitMargin &&
+  x <= animal.x + spriteWidth + hitMargin &&
+  y >= animal.y - hitMargin &&
+  y <= animal.y + spriteHeight + hitMargin
+)) {
       let scoreValue;
       let color;
 
@@ -319,6 +323,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
