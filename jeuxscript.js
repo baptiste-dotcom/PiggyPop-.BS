@@ -8,6 +8,7 @@ function resizeCanvas() {
 
   let canvasWidth = maxCanvasWidth;
   let canvasHeight = canvasWidth / ratio;
+  canvas.addEventListener('dblclick', e => e.preventDefault());
 
   if (canvasHeight > maxCanvasHeight) {
     canvasHeight = maxCanvasHeight;
@@ -313,6 +314,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
