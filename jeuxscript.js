@@ -117,7 +117,7 @@ function drawGameOverOverlay() {
   ctx.font = `${canvas.width / 10}px VT323`;
   ctx.fillStyle = '#ff0033';
   ctx.textAlign = 'center';
-  ctx.textShadow = '0 0 20px #ff0033';
+  ctx.textShadow = '0 0 15px #ff0033';
   ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 40);
 }
 
@@ -146,7 +146,7 @@ function triggerGameOver() {
 
 function drawFloatingScores() {
   floatingScores.forEach((score, index) => {
-    ctx.font = '5vw VT323';
+    ctx.font = '3vw VT323';
     ctx.fillStyle = `rgba(${hexToRgb(score.color)}, ${score.opacity})`;
     ctx.textAlign = 'center';
     ctx.save();
@@ -246,7 +246,7 @@ function handleClick(x, y) {
   x <= animal.x + spriteWidth + hitMargin &&
   y >= animal.y - hitMargin &&
   y <= animal.y + spriteHeight + hitMargin
-)) {
+) {
       let scoreValue;
       let color;
 
@@ -323,6 +323,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
