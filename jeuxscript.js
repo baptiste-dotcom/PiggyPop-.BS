@@ -123,7 +123,7 @@ function drawGameOverOverlay() {
 
 function drawFallingAnimals() {
   fallingAnimals.forEach((animal, i) => {
-    const spriteWidth = canvas.width / 3.5;
+    const spriteWidth = canvas.width / 3;
 const spriteHeight = spriteWidth * 1.25;
 ctx.drawImage(animalImages[animal.type], animal.x, animal.y, spriteWidth, spriteHeight);
     animal.y += animal.speed;
@@ -146,7 +146,7 @@ function triggerGameOver() {
 
 function drawFloatingScores() {
   floatingScores.forEach((score, index) => {
-    ctx.font = '5vw VT323';
+    ctx.font = '8vw VT323';
     ctx.fillStyle = `rgba(${hexToRgb(score.color)}, ${score.opacity})`;
     ctx.textAlign = 'center';
     ctx.save();
@@ -213,7 +213,7 @@ function hexToRgb(hex) {
 }
 
 canvas.addEventListener('click', function (e) {
-  const spriteWidth = canvas.width / 3.5;
+  const spriteWidth = canvas.width / 3;
   const spriteHeight = spriteWidth * 1.25;
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
@@ -224,7 +224,7 @@ canvas.addEventListener('click', function (e) {
 });
 
 canvas.addEventListener('touchstart', function (e) {
-  const spriteWidth = canvas.width / 3.5;
+  const spriteWidth = canvas.width / 3;
   const spriteHeight = spriteWidth * 1.25;
   const touch = e.touches[0];
   const rect = canvas.getBoundingClientRect();
@@ -236,7 +236,7 @@ canvas.addEventListener('touchstart', function (e) {
 });
 
 function handleClick(x, y) {
-  const spriteWidth = canvas.width / 3.5;
+  const spriteWidth = canvas.width / 3;
   const spriteHeight = spriteWidth * 1.25;
   for (let i = fallingAnimals.length - 1; i >= 0; i--) {
     const animal = fallingAnimals[i];
@@ -323,6 +323,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
