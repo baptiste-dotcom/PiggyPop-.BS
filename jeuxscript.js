@@ -118,8 +118,6 @@ function drawGameOverOverlay() {
   ctx.textAlign = 'center';
   ctx.textShadow = '0 0 15px #ff0033';
   ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 40);
-  ctx.shadowColor = '#ff0033';
-  ctx.shadowBlur = 30;
 }
 
 function drawFallingAnimals() {
@@ -324,5 +322,6 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
