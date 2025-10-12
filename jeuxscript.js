@@ -66,8 +66,8 @@ let fallingAnimals = [];
 
 function spawnAnimal(columnX) {
   const type = animalTypes[Math.floor(Math.random() * animalTypes.length)];
-  const baseSpeed = Math.random() * 2 + 3;
-  const speedMultiplier = Math.min(1 + currentScore / 300, 3);
+  const baseSpeed = Math.random() * 3 + 4;
+  const speedMultiplier = Math.min(1 + currentScore / 1000, 5.5);
   const finalSpeed = baseSpeed * speedMultiplier;
 
   fallingAnimals.push({
@@ -322,6 +322,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
