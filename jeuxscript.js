@@ -44,10 +44,6 @@ function checkStart() {
     gameLoop();
   }
 }
-function gameLoop() {
-  console.log('gameLoop tourne');
-  ...
-}
 
 pigImg.src = 'piggy.png';
 pigImg.onload = checkStart;
@@ -327,6 +323,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
