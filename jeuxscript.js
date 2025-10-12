@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 function resizeCanvas() {
   const ratio = window.innerWidth / window.innerHeight < 0.6 ? 9 / 20 : 9 / 16;
   const maxCanvasWidth = window.innerWidth * 0.95;
-  const maxCanvasHeight = document.documentElement.clientHeight * 0.9;
+  const maxCanvasHeight = document.documentElement.clientHeight * 0.95;
 
   let canvasWidth = maxCanvasWidth;
   let canvasHeight = canvasWidth / ratio;
@@ -67,7 +67,7 @@ let fallingAnimals = [];
 function spawnAnimal(columnX) {
   const type = animalTypes[Math.floor(Math.random() * animalTypes.length)];
   const baseSpeed = Math.random() * 4 + 3;
-  const speedMultiplier = Math.min(1 + currentScore / 300, 5.5);
+  const speedMultiplier = Math.min(1 + currentScore / 300, 4.5);
   const finalSpeed = baseSpeed * speedMultiplier;
 
   fallingAnimals.push({
@@ -123,8 +123,8 @@ function drawGameOverOverlay() {
 
 function drawFallingAnimals() {
   fallingAnimals.forEach((animal, i) => {
-    const spriteWidth = canvas.width / 4;
-const spriteHeight = spriteWidth * 1.25;
+    const spriteWidth = canvas.width / 3;
+const spriteHeight = spriteWidth * 1.5;
 ctx.drawImage(animalImages[animal.type], animal.x, animal.y, spriteWidth, spriteHeight);
     animal.y += animal.speed;
     if (animal.y > canvas.height) {
@@ -213,8 +213,8 @@ function hexToRgb(hex) {
 }
 
 canvas.addEventListener('click', function (e) {
-  const spriteWidth = canvas.width / 4;
-  const spriteHeight = spriteWidth * 1.25;
+  const spriteWidth = canvas.width / 3;
+  const spriteHeight = spriteWidth * 1.5;
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
   const scaleY = canvas.height / rect.height;
@@ -224,8 +224,8 @@ canvas.addEventListener('click', function (e) {
 });
 
 canvas.addEventListener('touchstart', function (e) {
-  const spriteWidth = canvas.width / 4;
-  const spriteHeight = spriteWidth * 1.25;
+  const spriteWidth = canvas.width / 3;
+  const spriteHeight = spriteWidth * 1.5;
   const touch = e.touches[0];
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
@@ -236,8 +236,8 @@ canvas.addEventListener('touchstart', function (e) {
 });
 
 function handleClick(x, y) {
-  const spriteWidth = canvas.width / 4;
-  const spriteHeight = spriteWidth * 1.25;
+  const spriteWidth = canvas.width / 3;
+  const spriteHeight = spriteWidth * 1.5;
   for (let i = fallingAnimals.length - 1; i >= 0; i--) {
     const animal = fallingAnimals[i];
     const hitMargin = 10;
@@ -323,6 +323,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
