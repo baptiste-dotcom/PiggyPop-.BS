@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 function resizeCanvas() {
   const ratio = window.innerWidth / window.innerHeight < 0.6 ? 9 / 20 : 9 / 16;
-  const maxCanvasWidth = window.innerWidth * 0.9;
+  const maxCanvasWidth = window.innerWidth * 0.95;
   const maxCanvasHeight = document.documentElement.clientHeight * 0.9;
 
   let canvasWidth = maxCanvasWidth;
@@ -323,6 +323,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
