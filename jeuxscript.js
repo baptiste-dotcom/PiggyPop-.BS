@@ -66,7 +66,7 @@ let fallingAnimals = [];
 
 function spawnAnimal(columnX) {
   const type = animalTypes[Math.floor(Math.random() * animalTypes.length)];
-  const baseSpeed = Math.random() * 3 + 4;
+  const baseSpeed = Math.random() * 2 + 3;
   const speedMultiplier = Math.min(1 + currentScore / 300, 4);
   const finalSpeed = baseSpeed * speedMultiplier;
 
@@ -113,12 +113,13 @@ function drawBackground() {
 function drawGameOverOverlay() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.font = `${canvas.width / 10}px VT323`;
+  ctx.font = `${canvas.width / 6}px VT323`;
   ctx.fillStyle = '#ff0033';
   ctx.textAlign = 'center';
   ctx.textShadow = '0 0 15px #ff0033';
   ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 40);
+  ctx.shadowColor = '#ff0033';
+  ctx.shadowBlur = 30;
 }
 
 function drawFallingAnimals() {
@@ -323,4 +324,5 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
