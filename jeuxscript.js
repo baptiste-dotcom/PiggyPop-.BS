@@ -80,9 +80,9 @@ function spawnAnimal(columnX) {
 
 setInterval(() => {
   const spacing = canvas.width / 4;
-  spawnAnimal(spacing * 0.4);   // colonne de gauche
+  spawnAnimal(spacing * 0.3);   // colonne de gauche
   spawnAnimal(spacing * 1.5);   // colonne du centre
-  spawnAnimal(spacing * 2.6);   // colonne de droite
+  spawnAnimal(spacing * 2.7);   // colonne de droite
 }, 1500);
 
 let currentScore = 0;
@@ -323,3 +323,4 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
