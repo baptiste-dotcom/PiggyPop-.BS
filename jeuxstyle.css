@@ -51,9 +51,9 @@ canvas {
 }
 
 #scoreBoard {
-  width: 100%;
-  max-width: 100%;
-  font-size: 32px;
+  width: 90%;
+  max-width: 90%;
+  font-size: 25px;
   background: #222;
   color: #00ffcc;
   font-family: 'VT323', monospace;
@@ -267,6 +267,7 @@ canvas {
     opacity: 0;
   }
 }
+
 
 
 
