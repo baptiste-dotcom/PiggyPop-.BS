@@ -146,7 +146,7 @@ function triggerGameOver() {
 
 function drawFloatingScores() {
   floatingScores.forEach((score, index) => {
-    ctx.font = '3vw VT323';
+    ctx.font = '5vw VT323';
     ctx.fillStyle = `rgba(${hexToRgb(score.color)}, ${score.opacity})`;
     ctx.textAlign = 'center';
     ctx.save();
@@ -323,6 +323,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
+
 
 
 
