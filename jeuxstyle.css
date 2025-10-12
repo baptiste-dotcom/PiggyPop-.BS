@@ -14,8 +14,8 @@ canvas {
   box-shadow: 0 0 20px #000;
   display: block;
   margin: 0 auto;
-  width: 100%;
-  max-width: 100%;
+  width: 90%;
+  max-width: 90%;
   height: calc(100dvh - 120px); /* ou ajusté selon ton layout */
   max-height: 100%;
   z-index: 2;
@@ -27,8 +27,8 @@ canvas {
   position: relative;
   margin-top: 0;
   flex-grow: 1;
-  width: 100%;
-  max-width: 100%;
+  width: 90%;
+  max-width: 90%;
   height: 80dvh;
 }
 
@@ -37,7 +37,7 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
   height: 80dvh;
   pointer-events: none;
   background-image: repeating-linear-gradient(
@@ -57,17 +57,17 @@ canvas {
   background: #222;
   color: #00ffcc;
   font-family: 'VT323', monospace;
-  padding: 10px;
+  padding: 4px;
   border: 4px solid #00ffcc;
   box-shadow: 0 0 12px #00ffcc;
   text-shadow: 0 0 2px #00ffcc;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 }
 
 #scoreBoard h3 {
-  font-size: 5vw;
-  margin-bottom: 10px;
+  font-size: 4vw;
+  margin-bottom: 5px;
   color: #ff00ff;
   text-shadow: 0 0 4px #ff00ff;
 }
@@ -78,9 +78,9 @@ canvas {
 }
 
 #scoreList li {
-  font-size: 5vw;
-  margin-bottom: 6px;
-  padding: 2px 6px;
+  font-size: 4vw;
+  margin-bottom: 3px;
+  padding: 1px 3px;
   background: #222;
   border-left: 4px solid #ff00ff;
   transition: background 0.3s;
@@ -99,31 +99,31 @@ canvas {
 #scoreTopBar {
   background: #111;
   font-family: 'VT323', monospace;
-  padding: 8px 16px;
-  border: 4px solid #00ffcc;
+  padding: 4px 8px;
+  border: 2px solid #00ffcc;
   box-shadow: 0 0 12px #00ffcc;
   text-shadow: 0 0 2px #00ffcc;
-  margin-bottom: 20px;
-  width: 90vw;
+  margin-bottom: 5px;
+  width: 90%;
 }
 
 #scoreContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 90%;
 }
 
 #scoreBoard h3 span#highScoreDisplay {
-  font-size: 5vw;
+  font-size: 4vw;
   color: #ffcc00;
   text-shadow: 0 0 8px #ffcc00;
   text-align: center;
 }
 
 #currentScore {
-  font-size: 5vw;
-  max-width: 100%;
+  font-size: 4vw;
+  max-width: 90%;
   word-wrap: break-word;
   color: #00ffff;
   text-shadow: 0 0 12px #00ffff;
@@ -135,23 +135,23 @@ canvas {
   display: flex;
   flex-direction: column;
   height: 80dvh;
-  width: 100vw;
+  width: 90%;
   justify-content: flex-start;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
+  gap: 10px;
+  padding: 10px 0;
   box-sizing: border-box;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #mainArea {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
   align-items: flex-start;
   flex-direction: row;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #restartButton {
@@ -181,19 +181,19 @@ canvas {
   #scoreContainer {
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
   }
 
   #highScoreDisplay {
-    font-size: 5vw;
+    font-size: 4vw;
     text-align: left;
-    width: 100%;
+    width: 90%;
     padding-left: 20px;
   }
 
   #currentScore {
-    font-size: 5vw;
-    max-width: 100%;
+    font-size: 4vw;
+    max-width: 90%;
     word-wrap: break-word;
     text-align: center;
   }
@@ -204,12 +204,12 @@ canvas {
   }
 
   #scoreBoard {
-    font-size: 5vw;
-    padding: 8px;
+    font-size: 4vw;
+    padding: 4px;
   }
 
   #scoreList li {
-    font-size: 5vw;
+    font-size: 4vw;
   }
 }
 
@@ -224,17 +224,17 @@ canvas {
 }
 
 #comboChargeDisplay {
-  font-size: 5vw;
+  font-size: 4vw;
   max-width: 100%;
   word-wrap: break-word;
   font-family: 'VT323', monospace;
   color: #00ffcc;
   text-shadow: 0 0 8px #00ffcc;
   background: #111;
-  padding: 10px 20px;
-  border: 4px solid #00ffcc;
+  padding: 5px 10px;
+  border: 2px solid #00ffcc;
   box-shadow: 0 0 16px #00ffcc;
-  border-radius: 8px;
+  border-radius: 4px;
   align-self: flex-start;
   animation: comboPulseBig 0.8s ease-out;
 }
@@ -244,10 +244,10 @@ canvas {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 8vw;
+  font-size: 6vw;
   color: #ff00ff;
   font-family: 'VT323', monospace;
-  text-shadow: 0 0 24px #ff00ff;
+  text-shadow: 0 0 15px #ff00ff;
   animation: recordPulse 1.5s ease-out forwards;
   z-index: 999;
   pointer-events: none;
@@ -267,6 +267,7 @@ canvas {
     opacity: 0;
   }
 }
+
 
 
 
