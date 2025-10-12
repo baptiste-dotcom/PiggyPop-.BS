@@ -17,7 +17,7 @@ canvas {
   width: 95vw;
   max-width: none;
   height: calc(100dvh - 120px); /* ou ajusté selon ton layout */
-  max-height: 90vw;
+  max-height: 95vw;
   z-index: 2;
   position: relative;
   touch-action: manipulation;
@@ -29,7 +29,7 @@ canvas {
   flex-grow: 1;
   width: 95vw;
   max-width: none;
-  height: 80vw;
+  height: 90vw;
 }
 
 #canvasWrapper:after {
@@ -267,6 +267,7 @@ canvas {
     opacity: 0;
   }
 }
+
 
 
 
