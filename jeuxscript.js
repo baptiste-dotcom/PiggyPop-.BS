@@ -66,8 +66,8 @@ let fallingAnimals = [];
 
 function spawnAnimal(columnX) {
   const type = animalTypes[Math.floor(Math.random() * animalTypes.length)];
-  const baseSpeed = Math.random() * 4 + 3;
-  const speedMultiplier = Math.min(1 + currentScore / 300, 4.5);
+  const baseSpeed = Math.random() * 3 + 4;
+  const speedMultiplier = Math.min(1 + currentScore / 300, 4);
   const finalSpeed = baseSpeed * speedMultiplier;
 
   fallingAnimals.push({
@@ -80,9 +80,9 @@ function spawnAnimal(columnX) {
 
 setInterval(() => {
   const spacing = canvas.width / 4;
-  spawnAnimal(spacing * 0.5);   // colonne de gauche
+  spawnAnimal(spacing * 0.4);   // colonne de gauche
   spawnAnimal(spacing * 1.5);   // colonne du centre
-  spawnAnimal(spacing * 2.5);   // colonne de droite
+  spawnAnimal(spacing * 2.6);   // colonne de droite
 }, 1500);
 
 let currentScore = 0;
@@ -323,22 +323,3 @@ document.getElementById('restartButton').addEventListener('click', () => {
   updateComboChargeDisplay();
   gameLoop();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
